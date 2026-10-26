@@ -1,0 +1,89 @@
+l
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow - To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <main class="app">
+        <header class="app-header">
+            <div>
+                <p class="eyebrow">YOUR PERSONAL WORKSPACE</p>
+                <h1>TaskFlow <span>✓</span></h1>
+                <p class="subtitle">Make today count, one task at a time.</p>
+            </div>
+        </header>
+
+        <section class="task-panel">
+            <form id="task-form" class="task-form">
+                <label for="task-input">Add a new task</label>
+                <div class="input-row">
+                    <input
+                        type="text"
+                        id="task-input"
+                        placeholder="What needs to get done?"
+                        maxlength="200"
+                        autocomplete="off"
+                        required
+                    >
+                    <button type="submit" id="submit-btn">+ Add Task</button>
+                </div>
+                <button type="button" id="cancel-edit" hidden>
+                    Cancel edit
+                </button>
+            </form>
+
+            <div class="stats">
+                <div class="stat">
+                    <span class="stat-number" id="total-count">0</span>
+                    <span class="stat-label">Total</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" id="active-count">0</span>
+                    <span class="stat-label">Active</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" id="completed-count">0</span>
+                    <span class="stat-label">Completed</span>
+                </div>
+            </div>
+
+            <div class="toolbar">
+                <div class="filters" aria-label="Filter tasks">
+                    <button type="button" class="filter-btn active"
+                        data-filter="all" aria-pressed="true">All</button>
+                    <button type="button" class="filter-btn"
+                        data-filter="active" aria-pressed="false">Active</button>
+                    <button type="button" class="filter-btn"
+                        data-filter="completed" aria-pressed="false">Completed</button>
+                </div>
+                <button type="button" id="clear-completed" class="text-btn">
+                    Clear completed
+                </button>
+            </div>
+
+            <ul id="task-list" aria-label="Tasks"></ul>
+
+            <div id="empty-state" class="empty-state">
+                <div class="empty-icon">✓</div>
+                <h2 id="empty-title">Ready to get things done?</h2>
+                <p id="empty-message">Add your first task above to get started.</p>
+            </div>
+
+            <footer class="panel-footer">
+                <span id="remaining-text">0 tasks remaining</span>
+                <span class="save-status" id="save-status"
+                    role="status" aria-live="polite">Saved locally</span>
+            </footer>
+        </section>
+
+        <p class="app-note">
+            Your tasks stay in this browser using local storage.
+        </p>
+    </main>
+</body>
+</html>
